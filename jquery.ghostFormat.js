@@ -30,13 +30,15 @@
       if (show_hide === 'show') {
         unformatted.addClass('hidden');
         $(formatted).removeClass('hidden');
-        unformatted_val = unformatted.val();
+        unformatted_val = unformatted.val().replace(/[^0-9\.]/g, '');
+        $(unformatted).val(unformatted_val);
         return $(formatted).val(setFormat(unformatted_val));
       } else {
         $(formatted).addClass('hidden');
         unformatted.removeClass('hidden');
         unformatted.focus();
-        unformatted_val = unformatted.val();
+        unformatted_val = unformatted.val().replace(/[^0-9\.]/g, '');
+        $(unformatted).val(unformatted_val);
         return $(formatted).val(setFormat(unformatted_val));
       }
     };
