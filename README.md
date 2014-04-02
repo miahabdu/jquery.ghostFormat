@@ -1,7 +1,7 @@
 Text Input Formatting Plugin for jQuery
 ========================
 
-[See a demo and examples here](http://miahabdu.github.io/jquery.ghostFormat/)
+[Click here to see a demo and example code](http://miahabdu.github.io/jquery.ghostFormat/)
 
 jquery.ghostFormat is a lightweight text field input foramatter plugin for jQuery. It allows for customizing input formats for numbers without changing the values that are saved to the database.
 
