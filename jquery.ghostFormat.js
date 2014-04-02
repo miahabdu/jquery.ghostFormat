@@ -5,22 +5,24 @@
       type: "money",
       inputClass: ''
     }, options);
-    Number.prototype.formatMoney = function() {
-      return '$' + this.toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+    formatMoney = function(value){
+      return '$' + parseFloat(value).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
+    }
+    formatPhone = function(value) {
+      return parseFloat(value).toFixed().replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
     };
-    Number.prototype.formatPhone = function() {
-      return this.toFixed().replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+    formatSSN = function(value) {
+      return parseFloat(value).toFixed().replace(/(\d{3})(\d{2})(\d{4})/, '$1-$2-$3');
     };
-    Number.prototype.formatSsn = function() {
-      return this.toFixed().replace(/(\d{3})(\d{2})(\d{4})/, '$1-$2-$3');
-    };
-    setFormat = function(formatted, unformatted_val) {
+    setFormat = function(unformatted_val) {
+      if (unformatted_val === '') return
+
       if (settings.type === 'money') {
-        return Number(unformatted_val).formatMoney();
+        return formatMoney(unformatted_val);
       } else if (settings.type === 'phone') {
-        return Number(unformatted_val).formatPhone();
+        return formatPhone(unformatted_val);
       } else if (settings.type === 'ssn') {
-        return Number(unformatted_val).formatSsn();
+        return formatSSN(unformatted_val);
       }
     };
     toggleFieldClass = function(show_hide, unformatted, formatted) {
@@ -29,13 +31,13 @@
         unformatted.addClass('hidden');
         $(formatted).removeClass('hidden');
         unformatted_val = unformatted.val();
-        return $(formatted).val(setFormat(formatted, unformatted_val));
+        return $(formatted).val(setFormat(unformatted_val));
       } else {
         $(formatted).addClass('hidden');
         unformatted.removeClass('hidden');
         unformatted.focus();
         unformatted_val = unformatted.val();
-        return $(formatted).val(setFormat(formatted, unformatted_val));
+        return $(formatted).val(setFormat(unformatted_val));
       }
     };
     formatField = function(unformatted, formatted) {
