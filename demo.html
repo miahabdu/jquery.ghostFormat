@@ -1,20 +1,89 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
-<head>
-   <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css" />
-   <script type="text/javascript" src="jquery.min.js"></script>
-   <script type="text/javascript" src="jquery.ghostFormat.js"></script>
-</head>
-<body>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Minimal by Steve Smith</title>
+    
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>jquery.ghostFormat</h1>
+        <p>jQuery plugin for formatting inputs</p>
+        <p class="view"><a href="http://github.com/miahabdu/jquery.ghostFormat">View the Project on GitHub <small>miahabdu/jquery.ghostFormat</small></a></p>
+        <ul>
+          <li><a href="https://github.com/orderedlist/minimal/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/orderedlist/minimal/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="http://github.com/orderedlist/minimal">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h2>Basic Example</h2>
 
-  <input type="text" id="money" />
-  <input type="text" id="phone" />
-  <input type="text" id="ssn" />
+        <p>The following input returns numbers as currency by default</p>
+        <input type="text" id="first_example" />
+        
+        <p></p>
 
-<script type="text/javascript">
-$(document).ready(function() {
-  $('#money').ghostFormat();
-  $('#phone').ghostFormat({type: 'phone'});
-  $('#ssn').ghostFormat({type: 'ssn'});
-});
-</script>
+        <pre><code>('#first_example').ghostFormat();</code></pre>
+
+        <h2>Type Paramater Example</h2>
+
+        <p>The following input returns numbers in phone format. Note that the input must be the full 10-digit phone number</p>
+        <input type="text" id="second_example" />
+        
+        <p></p>
+
+        <pre><code>$('#second_example').ghostFormat({type: 'phone'});</code></pre>
+        <hr/>
+        <p>The next input returns numbers in SSN format. Note that the input must be the full 9-digit social security number</p>
+        <input type="text" id="third_example" />
+        
+        <p></p>
+
+        <pre><code>$('#third_example').ghostFormat({type: 'ssn'});</code></pre>
+        
+        <h2>inputClass Paramater Example</h2>
+
+        <p>The following input is an example of default type and inputClass paramaters passed in</p>
+        <input type="text" id="fourth_example" class="form-control input-sm" />
+        
+        <p></p>
+
+        <pre><code>$('#fourth_example').ghostFormat({inputClass: 'form-control input-sm'});</code></pre>
+        <hr/>
+        
+        <p>The following input is an example of phone type and inputClass paramaters passed in</p>
+        <input type="text" id="fifth_example" class="form-control input-sm" />
+        
+        <p></p>
+
+        <pre><code>$('#fifth_example').ghostFormat({type: 'phone', inputClass: 'form-control input-sm'});</code></pre>
+        
+      </section>
+
+      <footer>
+        <p>This project is maintained by <a href="http://github.com/miahabdu">Abdul Miah</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript" src="jquery.ghostFormat.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#first_example').ghostFormat();
+        $('#second_example').ghostFormat({type: 'phone'});
+        $('#third_example').ghostFormat({type: 'ssn'});
+        $('#fourth_example').ghostFormat({inputClass: 'form-control input-sm'});
+        $('#fifth_example').ghostFormat({type: 'phone', inputClass: 'form-control input-sm'});
+      });
+    </script>
+  </body>
+</html>
