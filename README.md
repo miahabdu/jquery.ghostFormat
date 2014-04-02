@@ -14,7 +14,7 @@ Usage
 $('.example_input').ghostFormat();
 ```
 
-The above code will intialize ghostFormat on the selected inputs with default options. The default format converts the inputed values to currency (dollars).
+The above code will intialize ghostFormat on the selected inputs with default options. The default format converts the inputted values to currency (dollars).
 
 You can customize which format you want returned by passing in options as parameters.
 
