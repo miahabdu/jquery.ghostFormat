@@ -9,10 +9,10 @@
       return '$' + parseFloat(value).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,");
     }
     formatPhone = function(value) {
-      return parseFloat(value).toFixed().replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
+      return value.replace(/(\d{3})(\d{3})(\d{4})/, '($1) $2-$3');
     };
     formatSSN = function(value) {
-      return parseFloat(value).toFixed().replace(/(\d{3})(\d{2})(\d{4})/, '$1-$2-$3');
+      return value.replace(/(\d{3})(\d{2})(\d{4})/, '$1-$2-$3');
     };
     setFormat = function(unformatted_val) {
       if (unformatted_val === '') return
